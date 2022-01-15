@@ -1,0 +1,50 @@
+.main-container{
+    background: #f5f5f5;
+    padding: 10px 15px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+
+.main-container form h2{
+    text-transform: capitalize;
+    /* font-weight: 600; */
+    font-family: 'Prata', serif;
+}
+
+.main-container form .rect-bar{
+    height: 2px;
+    background: #333;
+    width: 20%;
+    margin-top: 20px;
+}
+
+.form-container{
+    padding: 3% 0;
+}
+
+.form-container .col-sm-6 .form-control{
+    width: 75%;
+}
+.form-container .col-sm-6 .control-container{
+    margin: 5px 0 20px 0;
+}
+.form-container .col-sm-6 label{
+    text-transform: capitalize;
+}
+.form-container .col-sm-12 button{
+    background: #5584ff;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 10px 25px;
+    border: 0;
+    outline: 0;
+}
+
+.form-container .container-table{
+    height: 400px;
+    overflow: auto;
+}

@@ -1,0 +1,28 @@
+.main-input{
+    margin-bottom: 15px;
+}
+
+.btn-login {
+    background: #5584ff none repeat scroll 0 0;
+    border-radius: 100px;
+    border: 0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 10px 27px 10px 27px;
+    position: relative;
+    outline: 0;
+
+}
+
+.link-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.a-link{
+    text-decoration: none;
+    color: #5584ff;
+    font-weight: 600;
+}
