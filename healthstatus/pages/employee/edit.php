@@ -1,3 +1,29 @@
+<?php
+    if(isset($_GET['eno'])){ // when click on Update button
+        $eno = $_GET['eno'];
+        $update = true;
+        $connection = mysqli_connect("localhost", "root", "", "demo");
+
+        $sql = "select * from employee where eno='$eno'";
+
+        $result1 = mysqli_query($connection, $sql);
+
+        if (mysqli_num_rows($result1) > 0){
+
+            while($row = mysqli_fetch_assoc($result1)){
+
+                $eno = $_POST["eno"];
+                $ename = $_POST["ename"];
+                $age = $_POST["age"];
+                $designation = $_POST["designation"];
+                $gender = $_POST["gender"];
+                $hno =$_POST["hno"];
+            }
+
+    ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +51,6 @@
                         <li><a href="../vaccination/vaccination.html"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
                         <li><a href="../hospital/hospital.html"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
                         <li class="active"><a href="../employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
-                        <li ><a href="../receive/receive.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -56,43 +81,47 @@
                     </header>
                 </div>
                 <div class="main-container">
-                    <form action="./server.php" method="post">
-                        <h2>employee Registration form</h2>
-                        <a href="./view.php">View Details</a>
+                <form action="./server.php?eno=<?php echo $eno; ?>" method="post">
+                        <h2>Update Details </h2>
+                        <!-- <a href="./view.php">View Details</a> -->
                         <div class="rect-bar"></div>
                         <div class="form-container">
                             <div class="col-sm-6">
                                 <div class="control-container">
                                     <label for="eno">employee number</label>
-                                    <input class="form-control" type="text" id="eno" name="eno" required>
+                                    <input class="form-control" type="text" id="eno" name="eno" required disabled='disabled' value=<?php echo $eno; ?>>
                                 </div>
                                 <div class="control-container">
                                     <label for="ename">employee name</label>
-                                    <input class="form-control" type="text" id="ename" name="ename" placeholder="Enter the name" required>
+                                    <input class="form-control" type="text" id="ename" name="ename" placeholder="Enter the name" required value=<?php echo $ename; ?>>
                                 </div>
                                 <div class="control-container">
                                     <label for="age">age</label>
-                                    <input class="form-control" type="number" id="age" name="age" required>
+                                    <input class="form-control" type="number" id="age" name="age" required value=<?php echo $age; ?>>
                                 </div>
                                 
                             </div>
                             <div class="col-sm-6">
                                 <div class="control-container">
                                     <label for="designation">designation</label>
-                                    <input class="form-control" type="text" id="designation" name="designation" required>
+                                    <input class="form-control" type="text" id="designation" name="designation" required value=<?php echo $designation; ?>>
                                 </div>
                                 <div class="control-container">
                                     <label for="gender">gender</label>
-                                    <input class="form-control" type="text" id="gender" name="gender" required>
+                                    <input class="form-control" type="text" id="gender" name="gender" required value=<?php echo $gender; ?>>
                                 </div>
                                 <div class="control-container">
                                     <label for="hno">hospital number </label>
-                                    <input class="form-control" type="text" id="hno" name="hno" required>
+                                    <input class="form-control" type="text" id="hno" name="hno" required value=<?php echo $hno; ?>>
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <button type="submit" name="add_data">Submit</button>     
-                            </div>
+                                        <?php if ($update == true){ ?>
+                                            <button name="update" type="submit">Update</button>
+                                        <?php } else { ?>
+                                            <button name="notupdate" type="submit" disabled="disabled" style="background: #333">Update</button>
+                                        <?php } ?>
+                                    </div>
                         </div>
                     </form>
                 </div>
