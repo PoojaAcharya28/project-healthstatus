@@ -87,7 +87,7 @@
                             </header>
                         </div>
                         <div class="main-container">
-                            <form action="./update.php?bno=<?php echo $bno; ?>" method="post">
+                            <form action="./server.php?bno=<?php echo $bno; ?>" method="post">
                                 <h2>Update Details </h2>
                                 
                                 <!-- <a href="./view.php">View Details</a> -->

@@ -112,7 +112,7 @@
                           name="password"
                         />
                       </div>
-                      <div class="form-group main-input">
+                      <!-- <div class="form-group main-input">
                         <div class="custom-control custom-checkbox small">
                           <div class="form-check">
                             <input
@@ -126,7 +126,7 @@
                             >
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                       
                       <button
                         class="btn-login"
@@ -150,9 +150,9 @@
                       <hr />
                     </form>
                     <div class="link-container">
-                      <div class="text-center">
+                      <!-- <div class="text-center">
                         <a class="small a-link" href="forgot-password.html">Forgot Password?</a>
-                      </div>
+                      </div> -->
                       <div class="text-center">
                         <a class="small a-link" href="register.php">Create an Account!</a>
                       </div>

@@ -1,85 +1,123 @@
 <?php
 
-    
-
-    //FOR CONNECTION
-    // include "./pages/db/connection.php";-for connecting database
-    //or
-    // $connection = mysqli_connect($server, $username, $password, $db);
-    //or
-    
-
     $connection = mysqli_connect("localhost", "root", "", "demo");
 
-    //collect post variable
 
-    $bno = $_POST['bno'];
-    $bname = $_POST["bname"];
-    $age = $_POST["age"];
-    $mothername = $_POST["mothername"];
-    $fathername = $_POST["fathername"];
-    $height = $_POST["height"];
-    $weight = $_POST["weight"];
-    $gender = $_POST["gender"];
+    // INSERT DETAILS
 
-    //insertion 
+    if (isset($_POST['add_data'])) {
 
-    $select =
-    "insert into baby (bno, bname, age, mothername, fathername,weight, height, gender ) values('$bno', '$bname', '$age' ,'$mothername', '$fathername', '$weight', '$height', '$gender')";
+        //ASSIGNING TO VARIABLE
 
-    //to execute the query
-    $result = mysqli_query($connection, $select);
+        $bno = $_POST['bno'];
+        $bname = $_POST["bname"];
+        $age = $_POST["age"];
+        $mothername = $_POST["mothername"];
+        $fathername = $_POST["fathername"];
+        $height = $_POST["height"];
+        $weight = $_POST["weight"];
+        $gender = $_POST["gender"];
 
-    //to check whether inserted or not
+        //INSERT QUERY
 
-    if($result){
-        echo '<script>alert("Inserted Successfully")</script>';
-        echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/baby.html"</script>';
-    } else
-        echo "Not inserted successfully";
+        $select =
+        "insert into baby (bno, bname, age, mothername, fathername,weight, height, gender ) values('$bno', '$bname', '$age' ,'$mothername', '$fathername', '$weight', '$height', '$gender')";
+
+        //to execute the query
+        $result = mysqli_query($connection, $select);
+
+        //to check whether inserted or not
+
+        if($result){
+
+            echo '<script>alert("Inserted Successfully")</script>';
+            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/baby.html"</script>';
+
+        } else
+            echo "Not inserted successfully";
+        
+    }
+
+    // UPDATE DETAILS
+
+    if(isset($_POST['update'])) // when click on Update button
+    {
+        
+        $bno = $_GET['bno'];
+        $bname = $_POST['bname'];
+        $age = $_POST['age'];
+        $mothername = $_POST['mothername'];
+        $fathername = $_POST['fathername'];
+        $weight = $_POST['weight'];
+        $height = $_POST['height'];
+        $gender = $_POST['gender'];
+
+
+        $sql = "update `baby` set bno = '$bno', bname = '$bname',  age ='$age' , mothername = '$mothername', fathername = '$fathername', weight = '$weight', height = '$height', gender = '$gender' where bno = '$bno'";
+
+        $result = mysqli_query($connection, $sql);
+
+        if($result){
+            // echo "Updated";
+            echo '<script>alert("Updated Successfully")</script>';
+            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/view.php"</script>';
+        } else{
+            echo "cant update";
+        }
+       
+    }
+
+
+
+
+
+
+
+
+
 
 
     // $baby = $_POST["baby"];
-    $sql1 = "select * from baby";
-    $result1= mysqli_query($connection, $sql1);
+    // $sql1 = "select * from baby";
+    // $result1= mysqli_query($connection, $sql1);
 
 
-        // $sql1 = "select bno, bname, age from baby";
-        // $result1 = mysqli_query($connection, $sql1);
+    //     // $sql1 = "select bno, bname, age from baby";
+    //     // $result1 = mysqli_query($connection, $sql1);
         
-        if (mysqli_num_rows($result1) > 0) {
-          //  TO Display the output data of each row
+    //     if (mysqli_num_rows($result1) > 0) {
+    //       //  TO Display the output data of each row
 
         
-              echo "<table>";
-                    echo"<tr>";
-                        echo"<th>Bno</th>";
-                        echo"<th>Bname</th>";
-                        echo"<th>Age</th>";
-                        echo"<th>Mother Name</th>";
-                        echo"<th>Father Name</th>";
-                        echo"<th>Weight</th>";
-                        echo"<th>Height</th>";
-                        echo"<th>Gender</th>";
-                    echo"</tr>";
-                        while($row = mysqli_fetch_assoc($result1)) {
-                        echo"<tr>";
-                        echo"<td>". $row['bno']."</td>";
-                        echo"<td>". $row['bname']."</td>";
-                        echo"<td>". $row['age']."</td>";
-                        echo"<td>". $row['mothername']."</td>";
-                        echo"<td>". $row['fathername']."</td>";
-                        echo"<td>". $row['weight']."</td>";
-                        echo"<td>". $row['height']."</td>";
-                        echo"<td>". $row['gender']."</td>";
-                    echo"</tr>";
-                        }
-             echo"</table>";
+    //           echo "<table>";
+    //                 echo"<tr>";
+    //                     echo"<th>Bno</th>";
+    //                     echo"<th>Bname</th>";
+    //                     echo"<th>Age</th>";
+    //                     echo"<th>Mother Name</th>";
+    //                     echo"<th>Father Name</th>";
+    //                     echo"<th>Weight</th>";
+    //                     echo"<th>Height</th>";
+    //                     echo"<th>Gender</th>";
+    //                 echo"</tr>";
+    //                     while($row = mysqli_fetch_assoc($result1)) {
+    //                     echo"<tr>";
+    //                     echo"<td>". $row['bno']."</td>";
+    //                     echo"<td>". $row['bname']."</td>";
+    //                     echo"<td>". $row['age']."</td>";
+    //                     echo"<td>". $row['mothername']."</td>";
+    //                     echo"<td>". $row['fathername']."</td>";
+    //                     echo"<td>". $row['weight']."</td>";
+    //                     echo"<td>". $row['height']."</td>";
+    //                     echo"<td>". $row['gender']."</td>";
+    //                 echo"</tr>";
+    //                     }
+    //          echo"</table>";
             
           
-        } else {
-                    echo "0 results";
-                }
+    //     } else {
+    //                 echo "0 results";
+    //             }
 
 // //delation
     //     $bno = $_POST["bno"];
@@ -174,10 +212,8 @@
 //     } else
 //     echo "cant update";
     //to close database connection
-    mysqli_close($connection);
 
-?>
     
-
+?>
 
     

@@ -1,3 +1,5 @@
+<?php include('server.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,6 +108,7 @@
                                             <td><?php echo $row['gender']; ?></td>
                                             <td>
                                                 <a href="./edit.php?bno=<?php echo $row['bno']; ?>" method="get">Edit</a>
+                                                
                                                 <a href="./delete.php?bno=<?php echo $row['bno']; ?>" method="delete">Delete</a>
                                             </td>
                                         </tr>
