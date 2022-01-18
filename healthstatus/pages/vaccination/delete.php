@@ -3,7 +3,7 @@ $connection = mysqli_connect("localhost", "root", "", "demo");
 
 
 $vno = $_GET['vno'];
-$sql2="delete from baby where vno = '$vno'";
+$sql2="delete from vaccination where vno = '$vno'";
 
     $result = mysqli_query($connection, $sql2);
     

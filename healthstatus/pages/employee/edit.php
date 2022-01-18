@@ -12,12 +12,12 @@
 
             while($row = mysqli_fetch_assoc($result1)){
 
-                $eno = $_POST["eno"];
-                $ename = $_POST["ename"];
-                $age = $_POST["age"];
-                $designation = $_POST["designation"];
-                $gender = $_POST["gender"];
-                $hno =$_POST["hno"];
+                $eno = $row["eno"];
+                $ename = $row["ename"];
+                $age = $row["age"];
+                $designation = $row["designation"];
+                $gender = $row["gender"];
+                $hno =$row["hno"];
             }
 
     ?>
@@ -137,3 +137,12 @@
     
 </body>
 </html>
+
+
+     <?php
+        } else {
+            echo "Not Found";
+        }
+        // mysqli_close($connection);
+    }
+?>

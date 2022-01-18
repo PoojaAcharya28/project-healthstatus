@@ -53,7 +53,7 @@
         if($result){
             // echo "Updated";
             echo '<script>alert("Updated Successfully")</script>';
-            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/hospital/hospital.php"</script>';
+            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/hospital/view.php"</script>';
         } else{
             echo "cant update";
         }

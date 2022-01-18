@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['vno'])){ // when click on Update button
-        $bno = $_GET['vno'];
+        $vno = $_GET['vno'];
         $update = true;
         $connection = mysqli_connect("localhost", "root", "", "demo");
 
@@ -83,7 +83,7 @@
                     </header>
                 </div>
                 <div class="main-container">
-                <form action="./server.php?bno=<?php echo $vno; ?>" method="post">
+                <form action="./server.php?vno=<?php echo $vno; ?>" method="post">
                     <h2>Update Details</h2>
                     <!-- <a href="./view.php">View Details</a> -->
                     <div class="rect-bar"></div>
@@ -103,7 +103,7 @@
                             </div>
                             <div class="control-container">
                                 <label for="agefordose">Age for dose</label>
-                                <input class="form-control" type="number" id="agefordose" name="agefordoze" required value=<?php echo $agefordoze; ?>>
+                                <input class="form-control" type="text" id="agefordose" name="agefordose" required value=<?php echo $agefordose; ?>>
                             </div>
                             <div class="control-container">
                                 <label for="hno">Hosital number</label>
@@ -129,3 +129,11 @@
     
 </body>
 </html>
+
+<?php
+        } else {
+            echo "Not Found";
+        }
+        // mysqli_close($connection);
+    }
+?>

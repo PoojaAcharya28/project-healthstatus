@@ -26,7 +26,7 @@
         if($result){
 
             echo '<script>alert("Inserted Successfully")</script>';
-            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/receive/receive.html"</script>';
+            // echo '<script>window.location="http://localhost/pooja/healthstatus/pages/receive/receive.html"</script>';
 
         } else
             echo "Not inserted successfully";

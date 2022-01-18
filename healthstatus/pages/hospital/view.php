@@ -61,7 +61,7 @@
                 <div class="main-container">
                  <form action="hospital.php" method="post">
                         <h2>hospital details</h2>
-                        <a href="./hospital.html">View Details</a>
+                        <a href="./hospital.html">Add Details</a>
                         <div class="rect-bar"></div>
                         <div class="form-container" style="height: 550px; overflow:auto">
                         
@@ -83,7 +83,6 @@
                                             <th>Location</th>
                                             <th>Phone</th>
                                             <th>Action</th>
-                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -95,7 +94,6 @@
                                             <td><?php echo $row['hname']; ?></td>
                                             <td><?php echo $row['location']; ?></td>
                                             <td><?php echo $row['phone']; ?></td>
-                                            
                                             <td>
                                                 <a href="./edit.php?hno=<?php echo $row['hno']; ?>" method="get">Edit</a>
                                                 

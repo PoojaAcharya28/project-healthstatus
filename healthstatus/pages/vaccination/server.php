@@ -17,7 +17,7 @@
         //INSERT QUERY
 
         $select =
-    "insert into vaccination (vno, vname, preventdisease, agefordose, hno) values(''$vno','$vname', '$preventdisease','$agefordose','$hno')";
+        "insert into vaccination (vno, vname, preventdisease, agefordose, hno) values('$vno','$vname', '$preventdisease','$agefordose','$hno')";
 
         //to execute the query
         $result = mysqli_query($connection, $select);
@@ -39,11 +39,11 @@
     if(isset($_POST['update'])) // when click on Update button
     {
         
-        $vno = $_GET["vno"];
-        $vname = $_POST["vname"];
-        $preventdisease = $_POST["preventdisease"];
-        $agefordose = $_POST["agefordose"];
-        $hno = $_POST["hno"];
+        $vno = $_GET['vno'];
+        $vname = $_POST['vname'];
+        $preventdisease = $_POST['preventdisease'];
+        $agefordose = $_POST['agefordose'];
+        $hno = $_POST['hno'];
 
 
         $sql = "update `vaccination` set vno = '$vno', vname = '$vname',  preventdisease ='$preventdisease' , agefordose = '$agefordose', hno = '$hno' where vno = '$vno'";

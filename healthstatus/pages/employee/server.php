@@ -58,6 +58,8 @@ if(isset($_POST['update'])) // when click on Update button
 
     $sql = "update `employee` set eno = '$eno', ename = '$ename',  age ='$age' , designation = '$designation', gender = '$gender', hno = '$hno' where eno = '$eno'";
     
+    $result = mysqli_query($connection, $sql);
+    
     if($result){
         // echo "Updated";
         echo '<script>alert("Updated Successfully")</script>';

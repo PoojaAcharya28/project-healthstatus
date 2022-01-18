@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['hno'])){ // when click on Update button
-        $bno = $_GET['hno'];
+        $hno = $_GET['hno'];
         $update = true;
         $connection = mysqli_connect("localhost", "root", "", "demo");
 
@@ -16,6 +16,7 @@
                 $hname = $row["hname"];
                 $location= $row["location"];
                 $phone = $row["phone"];
+            }
 
     ?>
 
@@ -122,3 +123,11 @@
     
 </body>
 </html>
+
+<?php
+        } else {
+            echo "Not Found";
+        }
+        // mysqli_close($connection);
+    }
+?>
