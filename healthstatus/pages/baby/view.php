@@ -1,7 +1,7 @@
 <?php include('server.php') ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
                 <div class="logo">
-                    <!-- <a hef="home.html"><img src="http://jskrishna.com/work/merkury/images/logo.png" alt="merkery_logo" class="hidden-xs hidden-sm">
+                    <!-- <a hef="home.php"><img src="http://jskrishna.com/work/merkury/images/logo.png" alt="merkery_logo" class="hidden-xs hidden-sm">
                         <img src="http://jskrishna.com/work/merkury/images/circle-logo.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
                     </a> -->
                     <h1>Child Health Status</h1>
@@ -25,10 +25,10 @@
                 <div class="navi">
                     <ul>
                         <li ><a href="../../index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
-                        <li class="active"><a href="../baby/baby.html"><i class="fa fa-child"aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
-                        <li><a href="../vaccination/vaccination.html"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
-                        <li><a href="../hospital/hospital.html"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
-                        <li ><a href="../employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
+                        <li class="active"><a href="../baby/baby.php"><i class="fa fa-child"aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
+                        <li><a href="../vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
+                        <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
+                        <li ><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
                         <li ><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
                         <!-- <li><a href=""><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
                         <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li> -->
@@ -66,7 +66,7 @@
                 <div class="main-container">
                     <form action="baby.php" method="post">
                         <h2>baby details</h2>
-                        <a href="./baby.html">Add Data</a>
+                        <a href="./baby.php">Add Data</a>
                         <div class="rect-bar"></div>
                         <div class="form-container" style="height: 550px; overflow:auto">
 
@@ -91,6 +91,7 @@
                                             <th>Weight</th>
                                             <th>Height</th>
                                             <th>Gender</th>
+                                            <th>Hospital</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -107,6 +108,7 @@
                                             <td><?php echo $row['weight']; ?></td>
                                             <td><?php echo $row['height']; ?></td>
                                             <td><?php echo $row['gender']; ?></td>
+                                            <td><?php echo $row['hname']; ?></td>
                                             <td>
                                                 <a href="./edit.php?bno=<?php echo $row['bno']; ?>" method="get">Edit</a>
                                                 
@@ -125,4 +127,4 @@
     </div>
     
 </body>
-</html>
+</php>

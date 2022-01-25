@@ -9,7 +9,6 @@
 
         //ASSIGNING TO VARIABLE
 
-        $hno = $_POST["hno"];
         $hname = $_POST["hname"];
         $location= $_POST["location"];
         $phone = $_POST["phone"];
@@ -18,7 +17,7 @@
         //INSERT QUERY
 
         $select =
-        "insert into hospital (hno, hname, location, phone) values('$hno', '$hname', '$location' ,'$phone')";
+        "insert into hospital (hname, location, phone) values('$hname', '$location' ,'$phone')";
 
         //to execute the query
         $result = mysqli_query($connection, $select);
@@ -28,7 +27,7 @@
         if($result){
 
             echo '<script>alert("Inserted Successfully")</script>';
-            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/hospital/hospital.html"</script>';
+            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/hospital/hospital.php"</script>';
 
         } else
             echo "Not inserted successfully";

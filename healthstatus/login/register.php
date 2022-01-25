@@ -127,10 +127,10 @@
                   <!-- <hr /> -->
                 </form>
                 <div class="link-container">
-                  <div class="text-center">
+                  <!-- <div class="text-center">
                     <a class="small a-link" href="forgot-password.html">Forgot Password?</a>
                     
-                  </div>
+                  </div> -->
                   <div class="text-center">
                     <a class="small a-link" href="login.php">Already have an account?</a>
                     

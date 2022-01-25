@@ -8,23 +8,23 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../../core-ui/general_ui.css">
     <link rel="stylesheet" href="../../core-ui/style.css">
-    <title>Infant</title>
+    <title>Employee</title>
 </head>
 <body>
     <div class="container-fluid display-table">
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
                 <div class="logo">
-                   
+                    
                     <h1>Child Health Status</h1>
                 </div>
                 <div class="navi">
                     <ul>
                         <li ><a href="../../index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
-                        <li class="active"><a href="../baby/baby.html"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
-                        <li><a href="../vaccination/vaccination.html"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
-                        <li><a href="../hospital/hospital.html"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
-                        <li ><a href="../employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
+                        <li ><a href="../baby/baby.php"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
+                        <li><a href="../vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
+                        <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
+                        <li class="active"><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
                         <li ><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
                     </ul>
                 </div>
@@ -57,57 +57,54 @@
                 </div>
                 <div class="main-container">
                     <form action="./server.php" method="post">
-                        <h2>baby registration form</h2>
+                        <h2>employee Registration form</h2>
                         <a href="./view.php">View Details</a>
                         <div class="rect-bar"></div>
                         <div class="form-container">
                             <div class="col-sm-6">
                                 <div class="control-container">
-                                    <label for="bno">baby number</label>
-                                    <input class="form-control" type="text" id="bno" name="bno" required>
+                                    <label for="eno">employee number</label>
+                                    <input class="form-control" type="text" id="eno" name="eno" required>
                                 </div>
                                 <div class="control-container">
-                                    <label for="bname">baby Name</label>
-                                    <input class="form-control" type="text" id="name" name="bname" placeholder="Enter the baby name" required>
+                                    <label for="ename">employee name</label>
+                                    <input class="form-control" type="text" id="ename" name="ename" placeholder="Enter the name" required>
                                 </div>
                                 <div class="control-container">
-                                    <label for="age">baby age</label>
-                                    <input class="form-control" type="number" id="age" name="age" min="0" placeholder="Enter the Age" required>
+                                    <label for="age">age</label>
+                                    <input class="form-control" type="number" id="age" name="age" required>
                                 </div>
-                                <div class="control-container">
-                                    <label for="mothername">mother's name</label>
-                                    <input class="form-control" type="text" id="mothername" name="mothername" placeholder="Enter the mother name" required>
-                                </div>
+                                
                             </div>
                             <div class="col-sm-6">
                                 <div class="control-container">
-                                    <label for="fathername">father's name</label>
-                                    <input class="form-control" type="text" id="fathername" name="fathername" placeholder="Enter the father name" required>
+                                    <label for="designation">designation</label>
+                                    <input class="form-control" type="text" id="designation" name="designation" required>
                                 </div>
                                 <div class="control-container">
-                                    <label for="weight">baby's weight</label>
-                                    <input class="form-control" type="number" id="weight" name="weight" placeholder="Enter the weight" required>
+                                    <label for="gender">gender</label>
+                                    <input class="form-control" type="text" id="gender" name="gender" required>
                                 </div>
                                 <div class="control-container">
-                                    <label for="height">baby's height</label>
-                                    <input class="form-control" type="number" id="height" name="height" placeholder="Enter the height" required>
-                                </div>
-                                <div class="control-container">
-                                    <label for="gender">baby's gender</label>
-                                    <input class="form-control" type="text" id="gender" name="gender" placeholder="Enter the gender" required>
+                                    <label for="hno">hospital number </label>
+                                    <input class="form-control" type="text" id="hno" name="hno" required>
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <button type="submit" name="add_data">Submit</button>
+                                <button type="submit" name="add_data">Submit</button>     
                             </div>
-                            
                         </div>
                     </form>
                 </div>
             </div>
+            
+            
+        </div>
         
 
     </div>
+
+    
     
 </body>
 </html>

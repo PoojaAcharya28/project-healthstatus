@@ -24,8 +24,8 @@
     ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,10 +47,10 @@
                 <div class="navi">
                     <ul>
                         <li ><a href="../../index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
-                        <li ><a href="../baby/baby.html"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
-                        <li class="active"><a href="../vaccination/vaccination.html"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
-                        <li><a href="../hospital/hospital.html"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
-                        <li ><a href="../employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
+                        <li ><a href="../baby/baby.php"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
+                        <li class="active"><a href="../vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
+                        <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
+                        <li ><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
                         <li ><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
 
                     </ul>
@@ -102,8 +102,8 @@
                                 <input class="form-control" type="text" id="preventdisease" name="preventdisease" required value=<?php echo $preventdisease; ?>>
                             </div>
                             <div class="control-container">
-                                <label for="agefordose">Age for dose</label>
-                                <input class="form-control" type="text" id="agefordose" name="agefordose" required value=<?php echo $agefordose; ?>>
+                                <label for="agefordose">Age for dose <small style="font-size: 10px; color : #666; letter-spacing: 1px">( in months )</small></label>
+                                <input class="form-control" type="text" id="agefordose" name="agefordose" min="0" required value=<?php echo $agefordose; ?>>
                             </div>
                             <div class="control-container">
                                 <label for="hno">Hosital number</label>
@@ -128,7 +128,7 @@
     
     
 </body>
-</html>
+</php>
 
 <?php
         } else {

@@ -39,10 +39,10 @@
                 <div class="navi">
                     <ul>
                         <li class="active"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
-                        <li><a href="./pages/baby/baby.html"><i class="fa fa-child"   aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
-                        <li><a href="./pages/vaccination/vaccination.html"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
-                        <li><a href="./pages/hospital/hospital.html"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
-                        <li><a href="./pages/employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
+                        <li><a href="./pages/baby/baby.php"><i class="fa fa-child"   aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
+                        <li><a href="./pages/vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
+                        <li><a href="./pages/hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
+                        <li><a href="./pages/employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
                         <li><a href="./pages/receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
                         <!-- <li><a href="#section1"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li> -->
                         <!-- <li><a href=""><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>

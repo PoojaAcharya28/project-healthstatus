@@ -9,7 +9,6 @@
 
         //ASSIGNING TO VARIABLE
 
-        $vno = $_POST["vno"];
         $vname = $_POST["vname"];
         $preventdisease = $_POST["preventdisease"];
         $agefordose = $_POST["agefordose"];
@@ -17,7 +16,7 @@
         //INSERT QUERY
 
         $select =
-        "insert into vaccination (vno, vname, preventdisease, agefordose, hno) values('$vno','$vname', '$preventdisease','$agefordose','$hno')";
+        "insert into vaccination (vname, preventdisease, agefordose, hno) values('$vname', '$preventdisease','$agefordose','$hno')";
 
         //to execute the query
         $result = mysqli_query($connection, $select);
@@ -27,7 +26,7 @@
         if($result){
 
             echo '<script>alert("Inserted Successfully")</script>';
-            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/vaccination/vaccination.html"</script>';
+            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/vaccination/vaccination.php"</script>';
 
         } else
             echo "Not inserted successfully";
@@ -38,7 +37,6 @@
 
     if(isset($_POST['update'])) // when click on Update button
     {
-        
         $vno = $_GET['vno'];
         $vname = $_POST['vname'];
         $preventdisease = $_POST['preventdisease'];
@@ -46,7 +44,7 @@
         $hno = $_POST['hno'];
 
 
-        $sql = "update `vaccination` set vno = '$vno', vname = '$vname',  preventdisease ='$preventdisease' , agefordose = '$agefordose', hno = '$hno' where vno = '$vno'";
+        $sql = "update `vaccination` set vname = '$vname',  preventdisease ='$preventdisease' , agefordose = '$agefordose', hno = '$hno' where vno = '$vno'";
 
         $result = mysqli_query($connection, $sql);
 

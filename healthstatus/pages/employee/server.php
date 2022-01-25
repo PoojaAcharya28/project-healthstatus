@@ -36,7 +36,7 @@
     if($result){
 
         echo '<script>alert("Inserted Successfully")</script>';
-        echo '<script>window.location="http://localhost/pooja/healthstatus/pages/employee/employee.html"</script>';
+        echo '<script>window.location="http://localhost/pooja/healthstatus/pages/employee/employee.php"</script>';
 
     } else
         echo "Not inserted successfully";

@@ -9,7 +9,7 @@
 
         //ASSIGNING TO VARIABLE
 
-        $bno = $_POST['bno'];
+        // $bno = $_POST['bno'];
         $bname = $_POST["bname"];
         $age = $_POST["age"];
         $mothername = $_POST["mothername"];
@@ -17,11 +17,12 @@
         $height = $_POST["height"];
         $weight = $_POST["weight"];
         $gender = $_POST["gender"];
+        $hname = $_POST["hname"];
 
         //INSERT QUERY
 
         $select =
-        "insert into baby (bno, bname, age, mothername, fathername,weight, height, gender ) values('$bno', '$bname', '$age' ,'$mothername', '$fathername', '$weight', '$height', '$gender')";
+        "insert into baby (bname, age, mothername, fathername, weight, height, gender, hname ) values('$bname', '$age' ,'$mothername', '$fathername', '$weight', '$height', '$gender', '$hname')";
 
         //to execute the query
         $result = mysqli_query($connection, $select);
@@ -31,7 +32,7 @@
         if($result){
 
             echo '<script>alert("Inserted Successfully")</script>';
-            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/baby.html"</script>';
+            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/baby.php"</script>';
 
         } else
             echo "Not inserted successfully";
@@ -51,9 +52,9 @@
         $weight = $_POST['weight'];
         $height = $_POST['height'];
         $gender = $_POST['gender'];
+        $hname = $_POST["hname"];
 
-
-        $sql = "update `baby` set bno = '$bno', bname = '$bname',  age ='$age' , mothername = '$mothername', fathername = '$fathername', weight = '$weight', height = '$height', gender = '$gender' where bno = '$bno'";
+        $sql = "update `baby` set bno = '$bno', bname = '$bname',  age ='$age' , mothername = '$mothername', fathername = '$fathername', weight = '$weight', height = '$height', gender = '$gender', hname = '$hname' where bno = '$bno'";
 
         $result = mysqli_query($connection, $sql);
 
