@@ -8,7 +8,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../../core-ui/general_ui.css">
     <link rel="stylesheet" href="../../core-ui/style.css">
-    <title>receive</title>
+    <title>Logs</title>
 </head>
 <body>
     <div class="container-fluid display-table">
@@ -20,12 +20,12 @@
                 </div>
                 <div class="navi">
                     <ul>
-                        <li ><a href="../../index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
-                        <li ><a href="../baby/baby.html"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
+                        <li><a href="../../index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
+                        <li><a href="../baby/baby.html"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
                         <li><a href="../vaccination/vaccination.html"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
                         <li><a href="../hospital/hospital.html"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
-                        <li ><a href="../employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
-                        <li class="active"><a href="../receive/receive.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
+                        <li><a href="../employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
+                        <li class="active"><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     </header>
                 </div>
                 <div class="main-container">
-                    <form action="./server.php" method="post">
+                    <!-- <form action="./server.php" method="post">
                         <h2>Receive</h2>
                         <a href="./view.php">View Details</a>
                         <div class="rect-bar"></div>
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="control-container">
                                     <label for="date">date</label>
-                                    <input class="form-control" type="date" id="age" date="date" required>
+                                    <input class="form-control" type="date" id="date" date="date" required>
                                 </div>
                                 
                             </div>
@@ -81,7 +81,56 @@
                                 <button type="submit" name="add_data">Submit</button>     
                             </div>
                         </div>
-                    </form>
+                    </form> -->
+                    <form action="vaccination.php" method="post">
+                    <h2>Logs</h2>
+                    <!-- <a href="./vaccination.html">Add Data</a> -->
+                    <div class="rect-bar"></div>
+                    <div class="form-container" style="height: 550px; overflow:auto">
+                     
+                    <?php
+
+                            $connection = mysqli_connect("localhost", "root", "", "demo");
+                            $sql1 = "select * from logs";
+                            $result1= mysqli_query($connection, $sql1);
+                                
+                                if (mysqli_num_rows($result1) > 0) {
+                                  //  TO Display the output data of each row
+                        ?>
+                        
+                                <table class="table table-striped" >
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Vno</th>
+                                            <th>Action</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        while($row = mysqli_fetch_assoc($result1)) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo $row['vno_id']; ?></td>
+                                            <td><?php echo $row['action']; ?></td>
+                                            <td><?php echo $row['time']; ?></td>
+                                            
+                                            
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>  
+                                <?php } ?>
+
+
+
+
+                        
+                    </div>
+                </form>
+                
                 </div>
             </div>
             

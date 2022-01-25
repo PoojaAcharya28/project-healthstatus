@@ -10,6 +10,7 @@
   	unset($_SESSION['email']);
   	header("location: login.php");
   }
+
 ?>
 
 
@@ -24,6 +25,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" href="./core-ui/general_ui.css">
+    <link rel="stylesheet" href="./core-ui/style.css">
 </head>
 
 <body class="home">
@@ -41,8 +43,8 @@
                         <li><a href="./pages/vaccination/vaccination.html"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
                         <li><a href="./pages/hospital/hospital.html"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
                         <li><a href="./pages/employee/employee.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
-                        <li><a href="./pages/receive/receive.html"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
-                        <li><a href="#section1"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li><a href="./pages/receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <!-- <li><a href="#section1"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li> -->
                         <!-- <li><a href=""><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
                         <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li> -->
                     </ul>
@@ -62,9 +64,9 @@
                                     </button>
                                 </div>
                             </nav>
-                            <div class="search hidden-xs hidden-sm">
+                            <!-- <div class="search hidden-xs hidden-sm">
                                 <input type="text" placeholder="Search" id="search">
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-md-5">
                             <div class="header-rightside">
@@ -101,7 +103,24 @@
                 </div>
                 <div class="user-dashboard">
                     
-                    <!-- <h1>Hello, JS</h1> -->
+                    <div class="user-container">
+                        <h1>Hello,</h1>
+                        <h5>Welcome to Dashboard</h5>
+                    </div>
+                    <!-- <div class="user-row">
+                        <a class="user-column">
+                            Baby
+                        </a>
+                        <a class="user-column">
+                            Vaccination
+                        </a>
+                        <a class="user-column">
+                            Hospital
+                        </a>
+                        <a class="user-column">
+                            Employee
+                        </a>
+                    </div> -->
                     <!-- <div class="row">
                         <div class="col-md-5 col-sm-5 col-xs-12 gutter">
 
