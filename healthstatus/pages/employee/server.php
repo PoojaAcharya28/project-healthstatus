@@ -1,8 +1,5 @@
 <?php
-    // include "./pages/db/connection.php";-for connecting database
-    //or
-    // $connection = mysqli_connect($server, $username, $password, $db);
-    //or
+    
     
 
     $connection = mysqli_connect("localhost", "root", "", "demo");
@@ -13,19 +10,16 @@
 
         //ASSIGNING TO VARIABLE
 
-
-    
-    $eno = $_POST["eno"];
     $ename = $_POST["ename"];
     $age = $_POST["age"];
     $designation = $_POST["designation"];
     $gender = $_POST["gender"];
-    $hno =$_POST["hno"];
+    $hname =$_POST["hname"];
 
     //INSERT QUERY
 
     $select =
-    "insert into employee (eno, ename, age, designation, gender, hno) values('$eno', '$ename',  '$age', '$designation', '$gender', '$hno')";
+    "insert into employee (ename, age, designation, gender, hname) values('$ename',  '$age', '$designation', '$gender', '$hname')";
 
     //TO EXECUTE QUERY
 
@@ -54,9 +48,9 @@ if(isset($_POST['update'])) // when click on Update button
     $age = $_POST["age"];
     $designation = $_POST["designation"];
     $gender = $_POST["gender"];
-    $hno =$_POST["hno"];
+    $hname =$_POST["hname"];
 
-    $sql = "update `employee` set eno = '$eno', ename = '$ename',  age ='$age' , designation = '$designation', gender = '$gender', hno = '$hno' where eno = '$eno'";
+    $sql = "update `employee` set eno = '$eno', ename = '$ename',  age ='$age' , designation = '$designation', gender = '$gender', hname = '$hname' where eno = '$eno'";
     
     $result = mysqli_query($connection, $sql);
     

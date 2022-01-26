@@ -1,10 +1,10 @@
 <?php
-    if(isset($_GET['bno'])){ // when click on Update button
-        $bno = $_GET['bno'];
+    if(isset($_GET['id'])){ // when click on Update button
+        $id = $_GET['id'];
         $update = true;
         $connection = mysqli_connect("localhost", "root", "", "demo");
 
-        $sql = "select * from receive where bno='$bno'";
+        $sql = "select * from receive where id='$id'";
 
         $result1 = mysqli_query($connection, $sql);
 
@@ -12,17 +12,18 @@
 
             while($row = mysqli_fetch_assoc($result1)){
 
-                $bno = $row['bno'];
-                $vno = $vno['vno'];
-                $date = $row['date'];
+                $id = $row['id'];
+                $bname = $row['bname'];
+                $vname = $row['vname'];
+                $status = $row['status'];
                 
             }
 
     ?>
 
 
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +50,8 @@
                         <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
                         <li ><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
                         <!-- <li class="active"><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li> -->
-                        <li ><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li ><a href="../logs/logs.php"><i class="fa fa-list" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li class="active" ><a href="../receive/receive.php"><i class="fa fa-files-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -80,23 +82,57 @@
                     </header>
                 </div>
                 <div class="main-container">
-                <form action="./server.php?bno=<?php echo $bno; ?>" method="post">
+                <form action="./server.php?id=<?php echo $id; ?>" method="post">
                         <h2>Update Details</h2>
                         <!-- <a href="./view.php">View Details</a> -->
                         <div class="rect-bar"></div>
                         <div class="form-container">
                             <div class="col-sm-6">
                                 <div class="control-container">
-                                    <label for="bno">baby number</label>
-                                    <input class="form-control" type="text" id="bno" name="bno" required disabled='disabled' value=<?php echo $bno; ?>>
+                                    <label for="bname">baby name</label>
+                                    <?php
+                                                    $sql1 = "select bname from baby";
+                                                    $result1= mysqli_query($connection, $sql1);
+                                                        
+                                                        if (mysqli_num_rows($result1) > 0) {
+                                                        //  TO Display the output data of each row
+                                                ?>
+                                            <select class="form-control" type="text" id="bname" name="bname" value=<?php echo $bname; ?>>
+                                                <option>Select Baby</option>
+                                                <?php
+                                                    while($row = mysqli_fetch_assoc($result1)) {
+                                                ?>
+                                                    <option><?php echo $row['bname']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                            <?php } ?>
                                 </div>
                                 <div class="control-container">
-                                    <label for="vno">vaccination number</label>
-                                    <input class="form-control" type="text" id="vno" name="vno"  required value=<?php echo $vno; ?>>
+                                    <label for="vname">vaccination name</label>
+                                    <?php
+                                                    $sql1 = "select vname from vaccination";
+                                                    $result1= mysqli_query($connection, $sql1);
+                                                        
+                                                        if (mysqli_num_rows($result1) > 0) {
+                                                        //  TO Display the output data of each row
+                                                ?>
+                                            <select class="form-control" type="text" id="vname" name="vname" value=<?php echo $vname; ?>>
+                                                <option>Select Vacination</option>
+                                                <?php
+                                                    while($row = mysqli_fetch_assoc($result1)) {
+                                                ?>
+                                                    <option><?php echo $row['vname']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                            <?php } ?>
                                 </div>
                                 <div class="control-container">
-                                    <label for="date">date</label>
-                                    <input class="form-control" type="date" id="date" name="date" required value=<?php echo $date; ?>>
+                                <label for="status">Status</label>
+                                            <select class="form-control" type="text" id="status" name="status" required value=<?php echo $status; ?>>
+                                                <option>Select Status</option>
+                                                <option name="yes" value="yes">Vaccinated</option>
+                                                <option name="No" value="No">Not Vaccinated</option>
+                                            </select>
                                 </div>
                                 
                             </div>
@@ -122,4 +158,11 @@
     
     
 </body>
-</php>
+</html>
+<?php
+        } else {
+            echo "Not Found";
+        }
+        // mysqli_close($connection);
+    }
+?>

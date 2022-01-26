@@ -2,8 +2,8 @@
 $connection = mysqli_connect("localhost", "root", "", "demo");
 
 
-$bno = $_GET['bno'];
-$sql2="delete from receive where bno = '$bno'";
+$id = $_GET['id'];
+$sql2="delete from receive where id = '$id'";
 
     $result = mysqli_query($connection, $sql2);
     

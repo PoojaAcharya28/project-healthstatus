@@ -1,3 +1,8 @@
+<?php
+    $connection = mysqli_connect("localhost", "root", "", "demo");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +30,8 @@
                         <li><a href="../vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
                         <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
                         <li class="active"><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
-                        <li ><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li ><a href="../logs/logs.php"><i class="fa fa-list" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li ><a href="../receive/receive.php"><i class="fa fa-files-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +70,19 @@
                             <div class="col-sm-6">
                                 <div class="control-container">
                                     <label for="eno">employee number</label>
-                                    <input class="form-control" type="text" id="eno" name="eno" required>
+                                    <?php
+
+                                        $sql1 = "select eno from employee ORDER BY eno DESC LIMIT 1;";
+                                        $result1= mysqli_query($connection, $sql1);
+                                                
+                                            if (mysqli_num_rows($result1) > 0) {
+                                            //  TO Display the output data of each row
+                                            $row = mysqli_fetch_assoc($result1);
+                                            $eno = $row['eno'] + 1;
+                                            
+                                ?>
+                                    <input class="form-control" type="text" id="eno" name="eno" required value=<?php echo $eno; ?> disabled>
+                                    <?php } ?>
                                 </div>
                                 <div class="control-container">
                                     <label for="ename">employee name</label>
@@ -72,22 +90,43 @@
                                 </div>
                                 <div class="control-container">
                                     <label for="age">age</label>
-                                    <input class="form-control" type="number" id="age" name="age" required>
+                                    <input class="form-control" type="number" id="age" name="age" required placeholder="Enter the age" min="21" max="60">
                                 </div>
                                 
                             </div>
                             <div class="col-sm-6">
                                 <div class="control-container">
                                     <label for="designation">designation</label>
-                                    <input class="form-control" type="text" id="designation" name="designation" required>
+                                    <input class="form-control" type="text" placeholder="Designation" id="designation" name="designation" required>
                                 </div>
                                 <div class="control-container">
                                     <label for="gender">gender</label>
-                                    <input class="form-control" type="text" id="gender" name="gender" required>
+                                    <select class="form-control" type="text" id="gender" name="gender" required value=<?php echo $gender; ?>>
+                                                <option>Select Gender</option>
+                                                <option name="female" value="female">Female</option>
+                                                <option name="male" value="male">Male</option>
+                                            </select>
                                 </div>
                                 <div class="control-container">
-                                    <label for="hno">hospital number </label>
-                                    <input class="form-control" type="text" id="hno" name="hno" required>
+                                    <label for="hname">hospital name </label>
+                                    <?php
+
+                                        $sql2 = "select hname from hospital";
+                                        $result2= mysqli_query($connection, $sql2);
+                                                
+                                            if (mysqli_num_rows($result2) > 0) {
+                                            //  TO Display the output data of each row
+                                    ?>
+                                    <select class="form-control" type="text" id="hname" name="hname" value=<?php $row['hname']; ?> required>
+                                        <option>Select Hospital</option>
+                                        <?php
+                                            while($row = mysqli_fetch_assoc($result2)) {
+                                        ?>
+                                            <option><?php echo $row['hname']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <?php } ?>
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-12">

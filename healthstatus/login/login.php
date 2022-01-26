@@ -1,47 +1,4 @@
-<?php
-// $connection = mysqli_connect("localhost", "root", "", "demo");
 
-// if(isset($_POST['login'])){
-//     $username = $_POST['email'];
-//     $password = $_POST['password'];
-
-//     //if the user try to enter without typing anything.
-//     if($email !=="" && $password !==""){
-//         // /$password = sha1($password);/
-//         $sql = "select * from user where email ='$email' and password='$password'";
-
-//         $result=mysqli_query($connection, $sql) or die('Error');
-//         if(mysqli_num_rows($result) > 0){
-
-//             while($row = mysqli_fetch_assoc($result)){
-//                 $uid = $row['uid'];
-//                 // $firstname = $row['firstname'];
-//                 // $lastname = $row['lastname'];
-//                 $email = $row['email'];
-//                 // $user_role = $row['user_role'];
-
-
-//                 //Starting the session for the user
-//                 $_SESSION['uid'] = $uid;
-//                 // $_SESSION['firstname'] = $firstname;
-//                 // $_SESSION['lastname'] = $lastname;
-//                 $_SESSION['email'] = $email;
-//                 // $_SESSION['user_role'] = $user_role;
-//                 // if($user_role == admin){
-                    // echo '<script>window.location="http://localhost/pooja/healthstatus/index.php"</script>';
-                // }else{
-                //     header('Location:user/userdashboard.php');
-                // }
-//             }
-//         }else{
-//             echo "Username or Password is incorrect!!";
-//         }
-//     }else{
-//         echo "Please Enter Username and Password";
-//     }
-// }
-
-?>
 
 <?php include('server.php') ?>
 
@@ -112,21 +69,6 @@
                           name="password"
                         />
                       </div>
-                      <!-- <div class="form-group main-input">
-                        <div class="custom-control custom-checkbox small">
-                          <div class="form-check">
-                            <input
-                              class="form-check-input custom-control-input"
-                              type="checkbox"
-                              id="formCheck-1"
-                            /><label
-                              class="form-check-label custom-control-label"
-                              for="formCheck-1"
-                              >Remember Me</label
-                            >
-                          </div>
-                        </div>
-                      </div> -->
                       
                       <button
                         class="btn-login"
@@ -135,24 +77,11 @@
                       >
                         Login
                       </button>
-                      <!-- <hr /> -->
-                      <!-- <a
-                        class="btn btn-primary btn-block text-white btn-google btn-user"
-                        role="button"
-                        ><i class="fab fa-google"></i>&nbsp; Login with
-                        Google</a> -->
-                      <!-- <a
-                        class="btn btn-primary btn-block text-white btn-facebook btn-user"
-                        role="button"
-                        ><i class="fab fa-facebook-f"></i>&nbsp; Login with
-                        Facebook</a> -->
                       
                       <hr />
                     </form>
                     <div class="link-container">
-                      <!-- <div class="text-center">
-                        <a class="small a-link" href="forgot-password.html">Forgot Password?</a>
-                      </div> -->
+
                       <div class="text-center">
                         <a class="small a-link" href="register.php">Create an Account!</a>
                       </div>

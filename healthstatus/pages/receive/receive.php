@@ -1,3 +1,7 @@
+<?php
+    $connection = mysqli_connect("localhost", "root", "", "demo");
+?>
+
 <!DOCTYPE php>
 <php lang="en">
 <head>
@@ -8,7 +12,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../../core-ui/general_ui.css">
     <link rel="stylesheet" href="../../core-ui/style.css">
-    <title>Logs</title>
+    <title>receive</title>
 </head>
 <body>
     <div class="container-fluid display-table">
@@ -20,12 +24,14 @@
                 </div>
                 <div class="navi">
                     <ul>
-                        <li><a href="../../index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
-                        <li><a href="../baby/baby.php"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
+                        <li ><a href="../../index.php"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">DashBoard</span></a></li>
+                        <li ><a href="../baby/baby.php"><i class="fa fa-child" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Baby</span></a></li>
                         <li><a href="../vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
                         <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
-                        <li><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
-                        <li class="active"><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li ><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
+                        <!-- <li class="active"><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li> -->
+                        <li ><a href="../logs/logs.php"><i class="fa fa-list" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li class="active" ><a href="../receive/receive.php"><i class="fa fa-files-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -56,81 +62,86 @@
                     </header>
                 </div>
                 <div class="main-container">
-                    <!-- <form action="./server.php" method="post">
-                        <h2>Receive</h2>
+                <form action="./server.php" method="post">
+                        <h2>Receive Details</h2>
                         <a href="./view.php">View Details</a>
                         <div class="rect-bar"></div>
                         <div class="form-container">
                             <div class="col-sm-6">
-                                <div class="control-container">
-                                    <label for="bno">baby number</label>
-                                    <input class="form-control" type="text" id="bno" name="bno" required>
+                            <div class="control-container">
+                                    <label for="id">Id</label>
+                                    <?php
+
+                                        $sql1 = "select id from receive ORDER BY id DESC LIMIT 1;";
+                                        $result1= mysqli_query($connection, $sql1);
+                                                
+                                            if (mysqli_num_rows($result1) > 0) {
+                                            //  TO Display the output data of each row
+                                            $row = mysqli_fetch_assoc($result1);
+                                            $id = $row['id'] + 1;
+                                    ?>
+                                    <input class="form-control" type="text" id="id" name="id" value=<?php echo $id; ?> disabled>
+                                    <?php } ?>
                                 </div>
                                 <div class="control-container">
-                                    <label for="vno">vaccination number</label>
-                                    <input class="form-control" type="text" id="vno" name="vno"  required>
+                                    <label for="bname">Baby Name</label>
+                                    <?php
+
+                                        $sql1 = "select bname from baby";
+                                        $result1= mysqli_query($connection, $sql1);
+                                                
+                                            if (mysqli_num_rows($result1) > 0) {
+                                            //  TO Display the output data of each row
+                                    ?>
+                                    <select class="form-control" type="text" id="bname" name="bname" value=<?php $row['bname']; ?> required>
+                                        <option>Select Name</option>
+                                        <?php
+                                            while($row = mysqli_fetch_assoc($result1)) {
+                                        ?>
+                                            <option><?php echo $row['bname']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <?php } ?>
                                 </div>
                                 <div class="control-container">
-                                    <label for="date">date</label>
-                                    <input class="form-control" type="date" id="date" date="date" required>
+                                    <label for="vname">Vaccination Name</label>
+                                    <?php
+
+                                        $sql2 = "select vname from vaccination";
+                                        $result2= mysqli_query($connection, $sql2);
+                                                
+                                            if (mysqli_num_rows($result2) > 0) {
+                                            //  TO Display the output data of each row
+                                    ?>
+                                    <select class="form-control" type="text" id="vname" name="vname" value=<?php $row['vname']; ?> required>
+                                        <option>Select vaccination</option>
+                                        <?php
+                                            while($row = mysqli_fetch_assoc($result2)) {
+                                        ?>
+                                            <option><?php echo $row['vname']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <?php } ?>
                                 </div>
-                                
+                                <div class="control-container">
+                                    <label for="gender">Vaccination status</label>
+                                    <select class="form-control" type="text" id="status" name="status" required>
+                                        <option>Select Options</option>
+                                        <option name="yes" value="yes">vaccinated</option>
+                                        <option name="no" value="no">Not vaccinated</option>
+                                    </select>
+                                </div>
                             </div>
                             
                             <div class="col-sm-12">
-                                <button type="submit" name="add_data">Submit</button>     
-                            </div>
+                                        
+                                            <button name="add_data" type="submit">Submit</button>
+                                        
+                                            <!-- <button name="notupdate" type="submit" disabled="disabled" style="background: #333">Update</button> -->
+                                      
+                                    </div>
                         </div>
-                    </form> -->
-                    <form action="vaccination.php" method="post">
-                    <h2>Logs</h2>
-                    <!-- <a href="./vaccination.php">Add Data</a> -->
-                    <div class="rect-bar"></div>
-                    <div class="form-container" style="height: 550px; overflow:auto">
-                     
-                    <?php
-
-                            $connection = mysqli_connect("localhost", "root", "", "demo");
-                            $sql1 = "select * from logs";
-                            $result1= mysqli_query($connection, $sql1);
-                                
-                                if (mysqli_num_rows($result1) > 0) {
-                                  //  TO Display the output data of each row
-                        ?>
-                        
-                                <table class="table table-striped" >
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Vno</th>
-                                            <th>Action</th>
-                                            <th>Time</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                        while($row = mysqli_fetch_assoc($result1)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['vno_id']; ?></td>
-                                            <td><?php echo $row['action']; ?></td>
-                                            <td><?php echo $row['time']; ?></td>
-                                            
-                                            
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>  
-                                <?php } ?>
-
-
-
-
-                        
-                    </div>
-                </form>
-                
+                    </form>
                 </div>
             </div>
             

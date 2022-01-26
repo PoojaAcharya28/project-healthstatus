@@ -27,7 +27,8 @@
                         <li><a href="../vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
                         <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
                         <li class="active"><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
-                        <li ><a href="../receive/receive.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li ><a href="../logs/logs.php"><i class="fa fa-list" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li ><a href="../receive/receive.php"><i class="fa fa-files-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -76,12 +77,12 @@
                                 <table class="table table-striped" >
                                     <thead>
                                         <tr>
-                                            <th>eno</th>
-                                            <th>ename</th>
+                                            <th>Employee Number</th>
+                                            <th>Employee Name</th>
                                             <th>Age</th>
                                             <th>Designation</th>
                                             <th>Gender</th>
-                                            <th>Hno</th>
+                                            <th>Hospital Name</th>
                                             <th>Action</th>
                                             
                                         </tr>
@@ -96,7 +97,7 @@
                                             <td><?php echo $row['age']; ?></td>
                                             <td><?php echo $row['designation']; ?></td>
                                             <td><?php echo $row['gender']; ?></td>
-                                            <td><?php echo $row['hno']; ?></td>
+                                            <td><?php echo $row['hname']; ?></td>
                                         
                                             <td>
                                                 <a href="./edit.php?eno=<?php echo $row['eno']; ?>" method="get">Edit</a>

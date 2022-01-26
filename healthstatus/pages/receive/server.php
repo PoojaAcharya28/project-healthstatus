@@ -8,15 +8,15 @@
     if (isset($_POST['add_data'])) {
 
         //ASSIGNING TO VARIABLE
-
-        $bno = $_POST['bno'];
-        $vno = $_POST["vno"];
-        $date = $_POST["date"];
+        
+        $bname = $_POST["bname"];
+        $vname = $_POST["vname"];
+        $status = $_POST["status"];
         
         //INSERT QUERY
 
         $select =
-        "insert into receive (bno, vno, date ) values('$bno', '$vno', '$date')";
+        "insert into receive (bname, vname,status) values('$bname', '$vname','$status')";
 
         //to execute the query
         $result = mysqli_query($connection, $select);
@@ -26,7 +26,7 @@
         if($result){
 
             echo '<script>alert("Inserted Successfully")</script>';
-            // echo '<script>window.location="http://localhost/pooja/healthstatus/pages/receive/receive.php"</script>';
+            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/receive/receive.php"</script>';
 
         } else
             echo "Not inserted successfully";
@@ -38,12 +38,13 @@
     if(isset($_POST['update'])) // when click on Update button
     {
         
-        $bno = $_GET['bno'];
-        $vno = $_GET["vno"];
-        $date = $_POST["date"];
+        $id = $_GET['id'];
+        $bname = $_POST['bname'];
+        $vname = $_POST['vname'];
+        $status = $_POST['status'];
         
 
-        $sql = "update `receive` set bno = '$bno', vno='$vno', date = '$date'  where bno = '$bno'";
+        $sql = "update `receive` set id = '$id', bname='$bname', vname = '$vname',status='$status'  where id = '$id'";
 
         $result = mysqli_query($connection, $sql);
 

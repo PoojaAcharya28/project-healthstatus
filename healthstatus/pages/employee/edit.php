@@ -17,7 +17,7 @@
                 $age = $row["age"];
                 $designation = $row["designation"];
                 $gender = $row["gender"];
-                $hno =$row["hno"];
+                $hname =$row["hname"];
             }
 
     ?>
@@ -51,6 +51,8 @@
                         <li><a href="../vaccination/vaccination.php"><i class="fa fa-medkit" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Vaccination</span></a></li>
                         <li><a href="../hospital/hospital.php"><i class="fa fa-hospital-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Hospital</span></a></li>
                         <li class="active"><a href="../employee/employee.php"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Employee</span></a></li>
+                        <li ><a href="../logs/logs.php"><i class="fa fa-list" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logs</span></a></li>
+                        <li ><a href="../receive/receive.php"><i class="fa fa-files-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Receive</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -108,11 +110,30 @@
                                 </div>
                                 <div class="control-container">
                                     <label for="gender">gender</label>
-                                    <input class="form-control" type="text" id="gender" name="gender" required value=<?php echo $gender; ?>>
+                                    <select class="form-control" type="text" id="gender" name="gender" required value=<?php echo $gender; ?>>
+                                                <option>Select Gender</option>
+                                                <option name="female" value="female">Female</option>
+                                                <option name="male" value="male">Male</option>
+                                            </select>
                                 </div>
                                 <div class="control-container">
-                                    <label for="hno">hospital number </label>
-                                    <input class="form-control" type="text" id="hno" name="hno" required value=<?php echo $hno; ?>>
+                                    <label for="hno">hospital name </label>                                    
+                                    <?php
+                                                    $sql1 = "select hname from hospital";
+                                                    $result1= mysqli_query($connection, $sql1);
+                                                        
+                                                        if (mysqli_num_rows($result1) > 0) {
+                                                        //  TO Display the output data of each row
+                                                ?>
+                                            <select class="form-control" type="text" id="hname" name="hname" value=<?php echo $hname; ?>>
+                                                <option>Select Hospital</option>
+                                                <?php
+                                                    while($row = mysqli_fetch_assoc($result1)) {
+                                                ?>
+                                                    <option><?php echo $row['hname']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                            <?php } ?>
                                 </div>
                             </div>
                             <div class="col-sm-12">

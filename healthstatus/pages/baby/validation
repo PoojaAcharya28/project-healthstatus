@@ -3,39 +3,150 @@
     $connection = mysqli_connect("localhost", "root", "", "demo");
 
 
+    // error message are empty
+    $bnameError = $ageError = $mnError = $hnameError = $fnError = '';
+
+    //input values are empty
+    $bname = $age = $mothername = $hname = $fathername =  ''  ;
+
+    extract($_POST);
     // INSERT DETAILS
 
     if (isset($_POST['add_data'])) {
 
         //ASSIGNING TO VARIABLE
-        $bname = $_POST["bname"];
-        $age = $_POST["age"];
-        $mothername = $_POST["mothername"];
-        $fathername = $_POST["fathername"];
-        $height = $_POST["height"];
-        $weight = $_POST["weight"];
-        $gender = $_POST["gender"];
-        $hname = $_POST["hname"];
+        // $bname = $_POST["bname"];
+        // $age = $_POST["age"];
+        // $mothername = $_POST["mothername"];
+        // $fathername = $_POST["fathername"];
+        // $height = $_POST["height"];
+        // $weight = $_POST["weight"];
+        // $gender = $_POST["gender"];
+        // $hname = $_POST["hname"];
 
-        //INSERT QUERY
 
-        $select =
-        "insert into baby (bname, age, mothername, fathername, weight, height, gender, hname ) values('$bname', '$age' ,'$mothername', '$fathername', '$weight', '$height', '$gender', '$hname')";
+            $validName="/^[a-zA-Z ]*$/";
+            
 
-        //to execute the query
-        $result = mysqli_query($connection, $select);
 
-        //to check whether inserted or not
+            //  baby Name Validation
+            if(empty($bname)){
+                $bnameError="First Name is Required"; 
+            }
+            else if (!preg_match($validName, $bname)) {
+                $bnameError="Digits are not allowed.";
+            }else{
+                $bnameError=true;
+            }
 
-        if($result){
+            //  Age Validation
+            if(empty($age)){
+                $ageError="Age is Required."; 
+            }
+            else{
+                $ageError=true;
+            }
 
-            echo '<script>alert("Inserted Successfully")</script>';
-            echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/baby.php"</script>';
+            //  Mother Name Validation
+            if(empty($mothername)){
+                $mnError="Mother Name is Required."; 
+            }
+            else if (!preg_match($validName, $mothername)) {
+                $mnError="Digits are not allowed.";
+            }else{
+                $mnError=true;
+            }
 
-        } else
-            echo "Not inserted successfully";
+            //  Father Name Validation
+            if(empty($hname)){
+                $hnameError="Please select the hospital name."; 
+            }
+            else{
+                $hnameError=true;
+            }
+
+            //  Father Name Validation
+            if(empty($fathername)){
+                $fnError="Father Name is Required."; 
+            }
+            else if (!preg_match($validName, $fathername)) {
+                $fnError="Digits are not allowed.";
+            }else{
+                $fnError=true;
+            }
+
+
+
+
+
+
+
+
+
+
+
+            if($bnameError==1 && $ageError == 1 && $mnError == 1 && $hnameError == 1 && $fnError == 1)
+            {
+
+                $select =
+                    "insert into baby (bname, age, mothername, fathername, hname ) values('$bname', '$age' ,'$mothername', '$fathername', '$hname')";
+
+                    //to execute the query
+                    $result = mysqli_query($connection, $select);
+
+                    //to check whether inserted or not
+
+                    if($result){
+
+                        echo '<script>alert("Inserted Successfully")</script>';
+                        echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/baby.php"</script>';
+
+                    } else{
+                        echo "Not inserted successfully";
+                    }
+
+
+
+            }else{
+                    // set input values is empty until input field is invalid
+                    $bname = '';
         
-    }
+                }
+        }
+
+        
+
+
+       
+
+        function legal_input($value) {
+            $value = trim($value);
+            $value = stripslashes($value);
+            $value = htmlspecialchars($value);
+            return $value;
+          }
+
+        // //INSERT QUERY
+
+        // $select =
+        // "insert into baby (bname, age, mothername, fathername, weight, height, gender, hname ) values('$bname', '$age' ,'$mothername', '$fathername', '$weight', '$height', '$gender', '$hname')";
+
+        // //to execute the query
+        // $result = mysqli_query($connection, $select);
+
+        // //to check whether inserted or not
+
+        // if($result){
+
+        //     echo '<script>alert("Inserted Successfully")</script>';
+        //     echo '<script>window.location="http://localhost/pooja/healthstatus/pages/baby/baby.php"</script>';
+
+        // } else
+        //     echo "Not inserted successfully";
+
+        
+        
+   
 
     // UPDATE DETAILS
 
