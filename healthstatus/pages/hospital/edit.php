@@ -100,7 +100,7 @@
                                 </p>
                                 <div class="control-container"> 
                                     <label for="phone">hospital phone number</label>
-                                    <input  class="form-control" type="text" id="phone" name="phone" placeholder="Enter the name" required value=<?php echo $phone; ?>>
+                                    <input  class="form-control" type="tel" id="phone" name="phone" placeholder="Enter the name" required value=<?php echo $phone; ?> pattern="[789][0-9]{9}">
                                 </div>
                                 <div class="col-sm-12">
                                         <?php if ($update == true){ ?>

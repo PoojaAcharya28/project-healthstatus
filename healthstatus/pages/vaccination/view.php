@@ -83,7 +83,7 @@
                                             <th>Vname</th>
                                             <th>Prevent Disease</th>
                                             <th>Age for dose</th>
-                                            <th>Hno</th>
+                                            <th>Hospital</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -96,7 +96,7 @@
                                             <td><?php echo $row['vname']; ?></td>
                                             <td><?php echo $row['preventdisease']; ?></td>
                                             <td><?php echo $row['agefordose']; ?></td>
-                                            <td><?php echo $row['hno']; ?></td>
+                                            <td><?php echo $row['hname']; ?></td>
                                             
                                             <td>
                                                 <a href="./edit.php?vno=<?php echo $row['vno']; ?>" method="get">Edit</a>

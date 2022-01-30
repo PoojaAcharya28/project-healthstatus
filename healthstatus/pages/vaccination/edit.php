@@ -16,7 +16,7 @@
                 $vname = $row["vname"];
                 $preventdisease = $row["preventdisease"];
                 $agefordose = $row["agefordose"];
-                $hno = $row["hno"];
+                $hname = $row["hname"];
             }
 
 
@@ -107,8 +107,8 @@
                                 <input class="form-control" type="text" id="agefordose" name="agefordose" min="0" required value=<?php echo $agefordose; ?>>
                             </div>
                             <div class="control-container">
-                                <label for="hno">Hosital number</label>
-                                <input class="form-control" type="text" id="hno" name="hno" required value=<?php echo $hno; ?>>
+                                <label for="hname">Hospital number</label>
+                                <input class="form-control" type="text" id="hname" name="hname" required value=<?php echo $hname; ?>>
                             </div>
                         </div>
                         <div class="col-sm-12">

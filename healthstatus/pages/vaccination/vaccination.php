@@ -63,7 +63,7 @@
                 </div>
                 <div class="main-container">
                 <form action="./server.php" method="post">
-                    <h2>Vaccination status of a Baby</h2>
+                    <h2>Vaccination</h2>
                     <a href="./view.php">View Details</a>
                     <div class="rect-bar"></div>
                     <div class="form-container">
@@ -99,21 +99,21 @@
                                     <input class="form-control" type="text" id="agefordose" name="agefordose" min="0" value="0" required>
                                 </div>
                                 <div class="control-container">
-                                    <label for="hno">Hospital name</label>
+                                    <label for="hname">Hospital no</label>
                                     <?php
 
-                                        $sql2 = "select hno, hname from hospital";
+                                        $sql2 = "select hname from hospital";
                                         $result2= mysqli_query($connection, $sql2);
                                                 
                                             if (mysqli_num_rows($result2) > 0) {
                                             //  TO Display the output data of each row
                                     ?>
-                                    <select class="form-control" type="text" id="hno" name="hno" value=<?php $row['hno']; ?> required>
+                                    <select class="form-control" type="text" id="hname" name="hname" value=<?php $row['hname']; ?> required>
                                         <option>Select Hospital</option>
                                         <?php
                                             while($row = mysqli_fetch_assoc($result2)) {
                                         ?>
-                                            <option><?php echo $row['hno']; ?></option>
+                                            <option><?php echo $row['hname']; ?></option>
                                         <?php } ?>
                                     </select>
                                     <?php } ?>

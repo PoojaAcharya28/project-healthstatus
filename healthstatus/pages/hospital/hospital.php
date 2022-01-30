@@ -93,7 +93,7 @@
                                 </p>
                                 <div class="control-container"> 
                                     <label for="phone">hospital phone number</label>
-                                    <input  class="form-control" type="text" id="phone" name="phone" placeholder="Enter the phone number" required>
+                                    <input  class="form-control" type="tel" id="phone" name="phone" placeholder="Enter the phone number" required pattern="[789][0-9]{9}">
                                 </div>
                                 <div class="col-sm-12">
                                     <button type="submit" name="add_data">Submit</button>

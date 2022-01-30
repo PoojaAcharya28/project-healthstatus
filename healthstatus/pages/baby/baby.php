@@ -81,7 +81,7 @@
                                             $row = mysqli_fetch_assoc($result1);
                                             $bno = $row['bno'] + 1;
                                     ?>
-                                    <input class="form-control" type="text" id="bno" name="bno" value=<?php echo $bno; ?> disabled>
+                                    <input class="form-control" type="text" id="bno" name="bno" pattern="[A-Za-z]{50}" value=<?php echo $bno; ?> disabled>
                                     <?php } ?>
                                 </div>
                                 <div class="control-container">
@@ -124,11 +124,11 @@
                                 </div>
                                 <div class="control-container">
                                     <label for="weight">baby's weight <small style="font-size: 10px; color : #666; letter-spacing: 1px">( in kg )</small></label>
-                                    <input class="form-control" type="number" id="weight" name="weight" placeholder="Enter the weight" min="2.5" value="2.5" required>
+                                    <input class="form-control" type="float" id="weight" name="weight" placeholder="Enter the weight" min=0  required>
                                 </div>
                                 <div class="control-container">
                                     <label for="height">baby's height <small style="font-size: 10px; color : #666; letter-spacing: 1px">( in cm )</small></label>
-                                    <input class="form-control" type="number" id="height" name="height" placeholder="Enter the height" min="45.6" value="45.6" required>
+                                    <input class="form-control" type="float" id="height" name="height" placeholder="Enter the height" min=0 required>
                                 </div>
                                 <div class="control-container">
                                     <label for="gender">baby's gender</label>
@@ -138,10 +138,7 @@
                                         <option name="male" value="male">Male</option>
                                     </select>
                                 </div>
-                                <!-- <div class="control-container">
-                                    <label for="gender">vaccination no</label>
-                                    <input class="form-control" type="text" id="vno" name="vno" placeholder="Enter the vaccination no" required>
-                                </div> -->
+                                
                                
                             </div>
                             <div class="col-sm-12">

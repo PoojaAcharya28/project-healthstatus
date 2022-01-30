@@ -84,7 +84,7 @@
                         </div>
                     </form> -->
                     <form action="vaccination.php" method="post">
-                    <h2>Logs</h2>
+                    <h2>Vaccination status of a baby</h2>
                     <!-- <a href="./vaccination.php">Add Data</a> -->
                     <div class="rect-bar"></div>
                     <div class="form-container" style="height: 550px; overflow:auto">
@@ -103,8 +103,9 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Vno</th>
-                                            <th>Action</th>
+                                            <th>Baby Name</th>
+                                            <th>Vaccination</th>
+                                            <th>Status</th>
                                             <th>Time</th>
                                         </tr>
                                     </thead>
@@ -114,7 +115,8 @@
                                     ?>
                                         <tr>
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['vno_id']; ?></td>
+                                            <td><?php echo $row['bname']; ?></td>
+                                            <td><?php echo $row['vname']; ?></td>
                                             <td><?php echo $row['action']; ?></td>
                                             <td><?php echo $row['time']; ?></td>
                                             

@@ -3,6 +3,7 @@ $connection = mysqli_connect("localhost", "root", "", "demo");
 
 
 $hno = $_GET['hno'];
+
 $sql2="delete from hospital where hno = '$hno'";
 
     $result = mysqli_query($connection, $sql2);
