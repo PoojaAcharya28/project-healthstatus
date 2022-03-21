@@ -99,7 +99,7 @@
                                     <input class="form-control" type="text" id="agefordose" name="agefordose" min="0" value="0" required>
                                 </div>
                                 <div class="control-container">
-                                    <label for="hname">Hospital no</label>
+                                    <label for="hname">Hospital name</label>
                                     <?php
 
                                         $sql2 = "select hname from hospital";

@@ -1,6 +1,18 @@
 <?php
 session_start();
 
+function filterEmail($field){
+  // Sanitize e-mail address
+  $field = filter_var(trim($field), FILTER_SANITIZE_EMAIL);
+  
+  // Validate e-mail address
+  if(filter_var($field, FILTER_VALIDATE_EMAIL)){
+      return $field;
+  } else{
+      return FALSE;
+  }
+}
+
 // initializing variables
 $firstname = "";
 $lastname = "";
@@ -26,11 +38,44 @@ if (isset($_POST['reg_user'])) {
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($firstname)) { array_push($errors, "Firstname is required"); }
   if (empty($lastname)) { array_push($errors, "Lastname is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
+  if (empty($email)) { 
+    array_push($errors, "Email is required");}
+    else {
+      // $uppercase = preg_match('@[A-Z]@', $email);
+      // $lowercase = preg_match('@[a-z]@', $email);
+      // $number = preg_match('@[0-9]@', $email);
+      
+      $email1 = filterEmail($email);
+      if($email1 == FALSE){
+        array_push($errors, "Please enter a valid email address.");
+      }
+      // } else if (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $email)){
+      //   array_push($errors, "Invalid Email");
+      // } 
+    }
+  
+  
+    
+    $number = preg_match('@[0-9]@', $password);
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $specialChars = preg_match('@[^\w]@', $password);
+    
   if (empty($password)) { array_push($errors, "Password is required"); }
-  if ($password != $confirmpassword) {
-	array_push($errors, "The two passwords do not match");
+  else if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars || strlen($password) > 8) {
+    array_push($errors,"Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.");
+  }else if ($password != $confirmpassword) {
+	  array_push($errors, "The two passwords do not match");
   }
+
+  if(empty($_POST["email"])){
+    $emailErr = "Please enter your email address.";     
+} else{
+    $email = filterEmail($_POST["email"]);
+    if($email == FALSE){
+        $emailErr = "Please enter a valid email address.";
+    }
+}
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
@@ -78,9 +123,11 @@ if (isset($_POST['login_user'])) {
     }
   
     if (count($errors) == 0) {
-        // $password = md5($password);
-        $query = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+        
+        $query = "select * from user where email='$email' and password='$password'";
         $results = mysqli_query($db, $query);
+        
+        $password = md5($password);
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['email'] = $email;
           $_SESSION['success'] = "You are now logged in";

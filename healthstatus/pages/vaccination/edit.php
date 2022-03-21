@@ -107,7 +107,7 @@
                                 <input class="form-control" type="text" id="agefordose" name="agefordose" min="0" required value=<?php echo $agefordose; ?>>
                             </div>
                             <div class="control-container">
-                                <label for="hname">Hospital number</label>
+                                <label for="hname">Hospital name</label>
                                 <input class="form-control" type="text" id="hname" name="hname" required value=<?php echo $hname; ?>>
                             </div>
                         </div>
